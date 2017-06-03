@@ -9,19 +9,19 @@ function current_page($uri = "/")
 <!DOCTYPE HTML>
 <head>
 <title>Shop - @yield('title')</title>
-<link href="/css/app.css" rel="stylesheet">
+<link href="{{ url('/') }}/css/app.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="css/menu.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="{{ url('/') }}/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="{{ url('/') }}/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
 <script src="js/jquerymain.js"></script>
- <link rel="shortcut icon" href="images/cart.jpg">
+ <link rel="shortcut icon" href="{{ url('/') }}/images/cart.jpg">
 <script src="js/script.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script> 
-<script type="text/javascript" src="js/nav.js"></script>
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script> 
-<script type="text/javascript" src="js/nav-hover.js"></script>
+<script type="text/javascript" src="{{ url('/') }}/js/jquery-1.7.2.min.js"></script> 
+<script type="text/javascript" src="{{ url('/') }}/js/nav.js"></script>
+<script type="text/javascript" src="{{ url('/') }}/js/move-top.js"></script>
+<script type="text/javascript" src="{{ url('/') }}/js/easing.js"></script> 
+<script type="text/javascript" src="{{ url('/') }}/js/nav-hover.js"></script>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link href='http://fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>

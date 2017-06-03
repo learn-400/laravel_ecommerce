@@ -59,6 +59,7 @@ class OrdersController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
@@ -81,6 +82,9 @@ class OrdersController extends Controller
     public function edit($id)
     {
         //
+        $data= Orders::all();
+        $edit_data = Orders::findOrFail($id);
+        return view('backend/order_details',compact('edit_data'));
     }
 
     /**
@@ -93,6 +97,10 @@ class OrdersController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data['status'] = $request->input('status');
+        //exit();
+        Orders::where('id',$id)->update(['status'=>$data['status']]);
+        return back()->with('msg','Successfully Order updated !! ');;
     }
 
     /**
@@ -104,5 +112,8 @@ class OrdersController extends Controller
     public function destroy($id)
     {
         //
+        $data = Orders::findOrFail($id);
+        $data->delete();
+        return redirect('orders')->with('msg','Successfully Deleted !! ');;
     }
 }

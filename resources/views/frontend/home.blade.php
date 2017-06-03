@@ -38,11 +38,11 @@
         ?>
                 <div class="listview_1_of_2 images_1_of_2">
                     <div class="listimg listimg_2_of_1">
-                         <a href="preview.html"> <img src="images/uploads/{{ $value->image }}" alt="" /></a>
+                         <a href="details/{{ $value->id }}"> <img src="images/uploads/{{ $value->image }}" alt="" /></a>
                     </div>
                     <div class="text list_2_of_1">
                         <h2>{{ $value->name }}</h2>
-                        <p>{{ $value->short_description }}</p>
+                        <p>{{ $value->sort_description }}</p>
                         <form method="POST" action="{{ url('add_cart') }}">
                            <input type="hidden" name="product_id" value="{{$value->id}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">         
@@ -65,11 +65,11 @@
 
                 <div class="listview_1_of_2 images_1_of_2">
                     <div class="listimg listimg_2_of_1">
-                         <a href="preview.html"> <img src="images/uploads/{{ $value->image }}" alt="" /></a>
+                         <a href="details/{{ $value->id }}"> <img src="images/uploads/{{ $value->image }}" alt="" /></a>
                     </div>
                     <div class="text list_2_of_1">
                         <h2>{{ $value->name }}</h2>
-                        <p>{{ $value->short_description }}</p>
+                        <p>{{ $value->sort_description }}</p>
                         <form method="POST" action="{{ url('add_cart') }}">
                            <input type="hidden" name="product_id" value="{{$value->id}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">         
@@ -114,34 +114,15 @@
             <div class="clear"></div>
         </div>
           <div class="section group">
+          <?php  foreach ($feature as $value){ ?>
                 <div class="grid_1_of_4 images_1_of_4">
-                     <a href="preview.html"><img src="images/feature-pic1.png" alt="" /></a>
-                     <h2>Lorem Ipsum is simply </h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                     <p><span class="price">$505.22</span></p>
-                     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
+                     <a href="details/{{ $value->id }}"><img src="images/feature-pic1.png" alt="" /></a>
+                     <h2>{{ $value->name }}</h2>
+                     <p>{{ $value->sort_description }}</p>
+                     <p><span class="price">${{ $value->price }}</span></p>
+                     <div class="button"><span><a href="details/{{ $value->id }}" class="details">Details</a></span></div>
                 </div>
-                <div class="grid_1_of_4 images_1_of_4">
-                    <a href="preview.html"><img src="images/feature-pic2.jpg" alt="" /></a>
-                     <h2>Lorem Ipsum is simply </h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                     <p><span class="price">$620.87</span></p>   
-                     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-                </div>
-                <div class="grid_1_of_4 images_1_of_4">
-                    <a href="preview.html"><img src="images/feature-pic3.jpg" alt="" /></a>
-                     <h2>Lorem Ipsum is simply </h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                     <p><span class="price">$220.97</span></p> 
-                     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-                </div>
-                <div class="grid_1_of_4 images_1_of_4">
-                    <img src="images/feature-pic4.png" alt="" />
-                     <h2>Lorem Ipsum is simply </h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                     <p><span class="price">$415.54</span></p>  
-                     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-                </div>
+                <?php } ?>
             </div>
             <div class="content_bottom">
                 <div class="heading">
@@ -155,10 +136,10 @@
                 
             ?>
                 <div class="grid_1_of_4 images_1_of_4">
-                     <a href="preview.html"><img src="images/uploads/{{ $value->image }}" alt="" width="250" height="250" /></a>
+                     <a href="details/{{ $value->id }}"><img src="images/uploads/{{ $value->image }}" alt="" width="250" height="250" /></a>
                      <h2>{{ $value->name }}</h2>
                      <p><span class="price">${{ $value->price }}</span></p>
-                     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
+                     <div class="button"><span><a href="details/{{ $value->id }}" class="details">Details</a></span></div>
                 </div>
             <?php   } ?>
             </div>

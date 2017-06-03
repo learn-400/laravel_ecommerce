@@ -74,8 +74,7 @@ class ProductsController extends Controller
         $data['attribute_set'] = $request->input('attribute_set');
         $Attribute_set = Attribute_set::where('id',$data['attribute_set'])->get();
         $Attribute = Attribute::all();
-
-
+        $feature = $request->input('feature');
         foreach ($Attribute_set as $v) {
 
              $a_set_value = unserialize($v->value);
@@ -107,7 +106,11 @@ class ProductsController extends Controller
         $data['category_id'] = $request->input('category_id');
         $data['brand_id'] = $request->input('brand_id');
         $data['publication_status'] = $request->input('publication_status');
-
+        if($feature=='on'){
+            $data['feature'] = true;
+        }else{
+            $data['feature'] = false;
+        }
 
 
         Pro::create($data);

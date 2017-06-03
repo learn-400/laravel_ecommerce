@@ -19,6 +19,12 @@ class Helper{
 		return $Attribute_by_id;
 	}
 
+	public static function get_by_id($model,$id){		
+		$Attribute_by_id = $model::findOrFail($id);
+		return $Attribute_by_id;
+	}
+
+
 	public static function matching_attribute($edit_data,$id,$i){
 		foreach (unserialize($edit_data) as $edit_data ) {
 	    //print_r($edit_data);
@@ -64,4 +70,13 @@ class Helper{
 	}
 
 
-}
+	public static function get_product_by_brand($id){
+		$result = Pro::where('brand_id',$id)->get();
+		return $result;
+	}
+
+	public static function test(){
+		echo "tested";
+	}
+
+}	

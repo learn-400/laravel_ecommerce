@@ -113,6 +113,15 @@ elseif ($edit ==1) {
 
                        </div>
                     </div>
+
+                    <div class="control-group">
+                                <label class="control-label">Feature</label>
+                                <div class="controls">
+                                  <label class="checkbox inline">
+                                    <input type="checkbox" id="inlineCheckbox1" name="feature"> Do you want it as a feature product?
+                                  </label>
+                                </div>
+                              </div>
                     <div class="control-group">
                         <label class="control-label" for="selectError3">Attribute Set</label>
                         <div class="controls">

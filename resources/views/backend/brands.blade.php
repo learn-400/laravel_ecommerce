@@ -69,7 +69,14 @@ elseif ($edit ==1) {
                         {{ Form::text('name', $name, array('type'=>'text','class'=>'span7 typeahead', 'id'=>'typeahead','data-provide'=>'typeahead','data-items'=>'4','data-source'=>'','placeholder'=>'Brands Name','required')) }}
                     </div>
                 </div>
-                
+                <div class="control-group">
+                                <label class="control-label">Top Brand</label>
+                                <div class="controls">
+                                  <label class="checkbox inline">
+                                    <input type="checkbox" id="inlineCheckbox1" name="top_brand"> Do you want it as a Top Brand product?
+                                  </label>
+                                </div>
+                              </div>
                 <div class="control-group">
                     <label class="control-label" for="selectError3">Publication Status</label>
                     <div class="controls">

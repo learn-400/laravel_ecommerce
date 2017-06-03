@@ -56,8 +56,15 @@ class BrandsController extends Controller
         $data['name'] = $request->input('name');
         $data['publiBrandsion_status'] = $request->input('status');
         */
-        $input= $request->all();
-        Brands::create($input);
+        $data['name'] = $request->input('name');
+        $data['publication_status'] = $request->input('publication_status');
+        $top_brand = $request->input('top_brand');
+        if($top_brand=='on'){
+            $data['top_brand']= true;
+        }else{
+            $data['top_brand'] = false;
+        }
+        Brands::create($data);
         return back()->with('msg','Successfully Added !! ');
     }
 

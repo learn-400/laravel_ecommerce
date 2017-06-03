@@ -2478,3 +2478,12 @@ p.terms {
 
 
 .active{background: rebeccapurple;}
+
+
+/*custom*/
+
+.grid_1_of_4 {
+    display: inline-block;
+    margin: 1% 20px 1% 0;
+	float:none
+}

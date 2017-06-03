@@ -38,6 +38,7 @@
                     <a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
                 </div>
             </div>
+            
             <div class="box-content">
                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                   <thead>
@@ -55,7 +56,6 @@
                   <?php 
                   $i = 0;
                   foreach ($category_data as $value) {
-                      # code...
                   ?>
                     <tr>
                         <td>{{$i =$i+1}}</td>
@@ -64,8 +64,11 @@
                         <td class="center">
                             <?php  
                                     $cart = unserialize($value->order_details);
-                                    echo count($cart);
-                                    
+                                    $qty = 0;
+                                    foreach ($cart as $v) {
+                                      $qty = $qty+$v->qty;
+                                    }
+                                 echo $qty;   
                             ?>
                         </td>
                         <td class="center">
@@ -74,7 +77,7 @@
                                     $cart = unserialize($value->order_details);
                                     $total = 0;
                                     foreach ($cart as $value2) {
-                                        $total= $total+$value2->price;
+                                        $total= $total+$value2->subtotal;
                                     }
                                     echo $total;
                             ?>
@@ -83,18 +86,15 @@
                             <span class="label label-<?php if($value->status=='pending'){echo 'btn btn-danger';}?>">{{$value->status}}</span>
                         </td>
                         <td class="center">
-                            <a class="btn btn-success" href="#">
-                                <i class="icon-zoom-in icon-white"></i>  
-                                View                                            
+                            <a class="btn btn-success" href="{{Route('orders.edit',$value->id)}}" style="float:left">
+                                <i class="icon-zoom-in icon-white"></i>
                             </a>
-                            <a class="btn btn-info" href="#">
-                                <i class="icon-edit icon-white"></i>  
-                                Edit                                            
-                            </a>
-                            <a class="btn btn-danger" href="#">
-                                <i class="icon-trash icon-white"></i> 
-                                Delete
-                            </a>
+                            {{ Form::open(array('route' => ['orders.destroy',$value->id],'method'=>'delete','style'=>'float: left;')) }}
+                           {{Form::hidden('id',$value->id)}}
+                          <button type="submit" class="btn btn-danger">
+                              <i class="icon-trash icon-white"></i> 
+                          </button>
+                          {{ Form::close() }}
                         </td>
                     </tr>
                     <?php } ?>

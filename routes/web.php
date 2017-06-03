@@ -34,6 +34,7 @@ Route::post('/update_cart/{id}/{method}', 'FrontendController@update_cart');
 Route::get('/myaccount', 'FrontendController@myaccount');
 Route::get('/myaccount/order', 'FrontendController@order');
 Route::post('/order', 'FrontendController@order');
+Route::get('/details/{id}', 'FrontendController@details');
 
 
 

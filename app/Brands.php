@@ -9,5 +9,5 @@ class Brands extends Model
     //
     protected $table = 'brands';
     protected $primaryKey = 'id';
-    protected $fillable= ['name','publication_status'];
+    protected $fillable= ['name','publication_status','top_brand'];
 }
